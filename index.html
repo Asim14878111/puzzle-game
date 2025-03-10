@@ -31,7 +31,8 @@ h6{
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
     font-size: 50px;
-    padding-top: 10px;
+    margin-top: 10px;
+  
 }
 
 .start-game:hover{
@@ -91,7 +92,7 @@ h6{
 </head>
 <body>
 
-    <h3 onclick=" timer(),changetext(),ChangeText(),CHANGEtext(),Changetext(),CHANGETEXT(),CHANGEText(),CHANGE(),Change(),change()"   class="flex justify-self-center mt-6  cursor-pointer start-game " >Start Game</h3>
+    <h3  class="flex justify-self-center mt-6  cursor-pointer start-game  " >Puzzle Game</h3>
 
 
 
@@ -138,13 +139,13 @@ h6{
   <div class="flex   items-center">
     <button
       class="Shuffle "
-      onclick="changetext(),ChangeText(),CHANGEtext(),Changetext(),CHANGETEXT(),CHANGEText(),CHANGE(),Change(),change()">
-      Shuffle
+      onclick="startgame(),timer(),changetext(),ChangeText(),CHANGEtext(),Changetext(),CHANGETEXT(),CHANGEText(),CHANGE(),Change(),change()">
+      Start game
     </button>
 
 
 
-    <p id="demo"  class=" timer px-8 flex w-fit justify-self-center">00:60</p>
+    <p id="demo"  class=" timer px-8 flex w-fit justify-self-center">01:00</p>
 <p id="demoo" ></p>
 
 
@@ -170,6 +171,9 @@ h6{
  -->
     </div>
 
+
+
+   <!-- <button   onclick="pauseVid()" >Stop</button>  -->
 
 <script>
 // let counter = 20;
@@ -316,10 +320,28 @@ h6{
 //       }
 
 
+// function pauseVid(){
+
+// pause().timer()
+// }
+
+
+const wrapper = document.querySelector('.wrapper')
+
+// Drag and Drop section  starts
+function startgame(){
+const dragArea = document.querySelector(".wrapper");
+new Sortable(dragArea)
+timer()
+clearInterval(timerInterval)
+    
+}
+
+
 let timerInterval
 
 function timer() {
-        let count = 60;
+        let count = 15;
         timerInterval = setInterval(function () {
           count--;
           document.getElementById("demo").innerText = "00:" + count;
@@ -350,7 +372,6 @@ function timer() {
 
       function submit(){
         clearInterval(timerInterval)
-
   myFunction()
 }
 
@@ -358,7 +379,7 @@ function timer() {
 
       function myFunction() {
 
-        const timer = document.querySelector("#demo").innerHTML = "00:00";
+        const timer = document.querySelector("#demo").innerHTML = "01:00";
         const boxes = document.querySelectorAll(".box");
         let valuesArray = [];
         let correctvalue = [1,2, 3, 4, 5, 6, 7, 8, 9];
@@ -389,83 +410,9 @@ function timer() {
 
 
 
-//     function myFunction(){
-        
-//         const boxes = document.querySelectorAll(".box")
-//         let value = "box"
-//         let text = "Lists numbers are" + boxes
-//         boxes.forEach((box)=>{
-//         console.log(box.innerHTML)
-
-        
-// const array = [box.innerHTML]
-// // console.log(array)
-
-// let newarray = array.values();
-
-// for (let value in newarray){
-//     console.log(value)
-// }
-
-
-// console.log(newarray)
-
-
-    // }
-    // )
-    // // console.log(boxes)
-    // }
 
 
 
-    const wrapper = document.querySelector('.wrapper')
-
-// Drag and Drop section  starts
-const dragArea = document.querySelector(".wrapper");
-new Sortable(dragArea)
-
-// Drag and Drop section ends
-
-
-// var downloadButton = document.getElementById("download");
-
-// var counter = 6;
-
-// var newElement = document.createElement("p");
-
-// newElement.innerHTML = "";
-
-// var id;
-
-// downloadButton.parentNode.replaceChild(newElement, downloadButton);
-
-// function startDownload() {
-
-//     this.style.display = 'none';
-
-//     id = setInterval(function () {
-
-//         counter--;
-
-//         if (counter < 0) { 
-    
-            
-            
-
-//         } else{
-      
-//             newElement.innerHTML = "00:" +counter.toString() ;
-//         }
-
-//     },1000 );
-
-// };
-
-// var clickbtn = document.getElementById("btn");
-
-// clickbtn.onclick = startDownload;
-
- 
 
 function changetext(){
     if(btn1.innerHTML == '1'){
